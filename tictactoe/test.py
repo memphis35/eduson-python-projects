@@ -1,7 +1,6 @@
 import game_util
 
 
-# rows
 def test_first_row_zeroes_wins():
     board = [['O', 'O', 'O'], ['_', '_', '_'], ['_', '_', '_']]
     assert game_util.check_if_player_wins(board)

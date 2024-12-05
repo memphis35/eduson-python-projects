@@ -1,4 +1,5 @@
 import game_util
+import random
 
 game_greeting = '''\
 Welcome to the Tic-Tac-Toe game. 
@@ -22,7 +23,7 @@ while not is_over:
     current_game_is_over = False
     print('A new game has started.')
     game_board = game_util.init_game_field()
-    current_player = 'X'  # choose randomly
+    current_player = ['O', 'X'][random.randrange(0, 2)]
     while not current_game_is_over:
         are_valid_coordinates = False
         x, y = 0, 0

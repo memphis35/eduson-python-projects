@@ -1,4 +1,4 @@
-from colorama import Fore
+from colorama import Fore, Style
 
 winner_line_zeroes = ['O'] * 3
 winner_line_crosses = ['X'] * 3
@@ -35,13 +35,13 @@ def draw_board_colored(board):
     for line in board:
         for index, sign in zip(indexes, line):
             if sign == 'O':
-                print(Fore.BLUE + sign, end='')
+                print(Fore.BLUE + sign + Style.RESET_ALL, end='')
             elif sign == 'X':
-                print(Fore.RED + sign, end='')
+                print(Fore.RED + sign + Style.RESET_ALL, end='')
             else:
-                print(Fore.RESET + sign, end='')
+                print(sign, end='')
             if index < 2:
-                print(Fore.RESET + ' | ', end='')
+                print(' | ', end='')
         print(Fore.RESET + '')
 
 def swap_player(player):
@@ -83,7 +83,6 @@ def check_if_player_wins(field):
         result = []
         for coordinate_tuple in line:
             result.append(field[coordinate_tuple[0]][coordinate_tuple[1]])
-        print(result)
         if result == crosses or result == zeroes:
             return True
     return False
